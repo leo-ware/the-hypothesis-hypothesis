@@ -33,7 +33,3 @@ def entry():
         redirect('/')
     "https://arxiv.org/pdf/2101.10285.pdf"
     return render_template("entry.html", link=link)
-
-
-if __name__ == '__main__':
-    app.run()
