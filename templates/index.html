@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <form>
+        <label for="searchbar"></label>
+        <input type="text" id="searchbar" name="query" placeholder="search..." value="{{ query }}"/>
+        <input type="submit"/>
+    </form>
+
+
+    {% if results %}
+        {% for link, result in results %}
+        <div class="search-result">
+            <a href="/entry?pdf={{ link }}">
+                <h3 class="search-result-title">{{ result.title.value }}</h3>
+            </a>
+            <p class="search-result-info">{{ result.summary.value }}</p>
+        </div>
+        {% endfor %}
+    {% else %}
+        <p class="search-prompt">Search a term to see results...</p>
+    {% endif %}
+
+{% endblock %}
